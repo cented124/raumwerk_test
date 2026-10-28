@@ -1,0 +1,172 @@
+{
+  "$defs": {
+    "Theme": {
+      "additionalProperties": false,
+      "properties": {
+        "background": {
+          "default": "#f7f9fa",
+          "pattern": "^#[0-9a-fA-F]{6}$",
+          "title": "Background",
+          "type": "string"
+        },
+        "foreground": {
+          "default": "#142736",
+          "pattern": "^#[0-9a-fA-F]{6}$",
+          "title": "Foreground",
+          "type": "string"
+        },
+        "hero_layout": {
+          "default": "cover",
+          "enum": [
+            "cover",
+            "split"
+          ],
+          "title": "Hero Layout",
+          "type": "string"
+        },
+        "card_layout": {
+          "default": "grid",
+          "enum": [
+            "grid",
+            "list"
+          ],
+          "title": "Card Layout",
+          "type": "string"
+        },
+        "radius": {
+          "default": 0,
+          "maximum": 32,
+          "minimum": 0,
+          "title": "Radius",
+          "type": "integer"
+        },
+        "content_width": {
+          "default": 1280,
+          "maximum": 1600,
+          "minimum": 960,
+          "title": "Content Width",
+          "type": "integer"
+        },
+        "spacing": {
+          "default": "normal",
+          "enum": [
+            "compact",
+            "normal",
+            "generous"
+          ],
+          "title": "Spacing",
+          "type": "string"
+        },
+        "heading_scale": {
+          "default": 1,
+          "maximum": 1.3,
+          "minimum": 0.8,
+          "title": "Heading Scale",
+          "type": "number"
+        },
+        "primary": {
+          "default": "#173c50",
+          "pattern": "^#[0-9a-fA-F]{6}$",
+          "title": "Primary",
+          "type": "string"
+        },
+        "accent": {
+          "default": "#b18b63",
+          "pattern": "^#[0-9a-fA-F]{6}$",
+          "title": "Accent",
+          "type": "string"
+        },
+        "font": {
+          "default": "modern",
+          "enum": [
+            "modern",
+            "classic"
+          ],
+          "title": "Font",
+          "type": "string"
+        }
+      },
+      "title": "Theme",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "id": {
+      "pattern": "^[a-z][a-z0-9-]{1,40}$",
+      "title": "Id",
+      "type": "string"
+    },
+    "name": {
+      "maxLength": 100,
+      "minLength": 1,
+      "title": "Name",
+      "type": "string"
+    },
+    "version": {
+      "enum": [
+        1,
+        2
+      ],
+      "title": "Version",
+      "type": "integer"
+    },
+    "adapter": {
+      "enum": [
+        "atelier",
+        "editorial"
+      ],
+      "title": "Adapter",
+      "type": "string"
+    },
+    "theme": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/Theme"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
+    },
+    "pages": {
+      "items": {
+        "enum": [
+          "home",
+          "properties",
+          "property",
+          "contact",
+          "disclosure",
+          "content"
+        ],
+        "type": "string"
+      },
+      "title": "Pages",
+      "type": "array"
+    },
+    "actions": {
+      "items": {
+        "enum": [
+          "search",
+          "inquiry",
+          "download",
+          "return"
+        ],
+        "type": "string"
+      },
+      "title": "Actions",
+      "type": "array"
+    }
+  },
+  "required": [
+    "id",
+    "name",
+    "version",
+    "adapter",
+    "pages",
+    "actions"
+  ],
+  "title": "Manifest",
+  "type": "object"
+}

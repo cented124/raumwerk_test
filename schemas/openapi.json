@@ -1,0 +1,1908 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "Raumwerk · Immobilien-Baukasten",
+    "version": "0.1.0"
+  },
+  "paths": {
+    "/api/public/config": {
+      "get": {
+        "summary": "Public Config",
+        "operationId": "public_config_api_public_config_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/public/properties": {
+      "get": {
+        "summary": "Property List",
+        "operationId": "property_list_api_public_properties_get",
+        "parameters": [
+          {
+            "name": "q",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "default": "",
+              "title": "Q"
+            }
+          },
+          {
+            "name": "offer",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "default": "",
+              "title": "Offer"
+            }
+          },
+          {
+            "name": "type",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "default": "",
+              "title": "Type"
+            }
+          },
+          {
+            "name": "min_price",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "number",
+              "default": 0,
+              "title": "Min Price"
+            }
+          },
+          {
+            "name": "max_price",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "number",
+              "default": 1000000000000.0,
+              "title": "Max Price"
+            }
+          },
+          {
+            "name": "min_area",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "number",
+              "default": 0,
+              "title": "Min Area"
+            }
+          },
+          {
+            "name": "rooms",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "number",
+              "default": 0,
+              "title": "Rooms"
+            }
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "default": "newest",
+              "title": "Sort"
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "default": 1,
+              "title": "Page"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/public/properties/{slug}": {
+      "get": {
+        "summary": "Property Detail",
+        "operationId": "property_detail_api_public_properties__slug__get",
+        "parameters": [
+          {
+            "name": "slug",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Slug"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/public/inquiries": {
+      "post": {
+        "summary": "Submit",
+        "operationId": "submit_api_public_inquiries_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/InquiryInput"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "202": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/public/files/{fid}": {
+      "get": {
+        "summary": "Public File",
+        "operationId": "public_file_api_public_files__fid__get",
+        "parameters": [
+          {
+            "name": "fid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Fid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/public/disclosure-return": {
+      "post": {
+        "summary": "Disclosure Return",
+        "operationId": "disclosure_return_api_public_disclosure_return_post",
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "$ref": "#/components/schemas/Body_disclosure_return_api_public_disclosure_return_post"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "202": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/public/events": {
+      "post": {
+        "summary": "Event",
+        "operationId": "event_api_public_events_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EventInput"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "202": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "AccountPassword": {
+        "properties": {
+          "current_password": {
+            "type": "string",
+            "maxLength": 512,
+            "title": "Current Password"
+          },
+          "password": {
+            "type": "string",
+            "maxLength": 200,
+            "minLength": 12,
+            "title": "Password"
+          }
+        },
+        "type": "object",
+        "required": [
+          "current_password",
+          "password"
+        ],
+        "title": "AccountPassword"
+      },
+      "Body_check_design_api_admin_builder_design_validate_post": {
+        "properties": {
+          "file": {
+            "type": "string",
+            "format": "binary",
+            "title": "File"
+          }
+        },
+        "type": "object",
+        "required": [
+          "file"
+        ],
+        "title": "Body_check_design_api_admin_builder_design_validate_post"
+      },
+      "Body_disclosure_return_api_public_disclosure_return_post": {
+        "properties": {
+          "file": {
+            "type": "string",
+            "format": "binary",
+            "title": "File"
+          },
+          "reference": {
+            "type": "integer",
+            "title": "Reference"
+          },
+          "email": {
+            "type": "string",
+            "title": "Email"
+          },
+          "return_code": {
+            "type": "string",
+            "title": "Return Code"
+          },
+          "consent": {
+            "type": "boolean",
+            "title": "Consent"
+          }
+        },
+        "type": "object",
+        "required": [
+          "file",
+          "reference",
+          "email",
+          "return_code",
+          "consent"
+        ],
+        "title": "Body_disclosure_return_api_public_disclosure_return_post"
+      },
+      "Body_install_design_api_admin_builder_design_import_post": {
+        "properties": {
+          "file": {
+            "type": "string",
+            "format": "binary",
+            "title": "File"
+          }
+        },
+        "type": "object",
+        "required": [
+          "file"
+        ],
+        "title": "Body_install_design_api_admin_builder_design_import_post"
+      },
+      "Body_upload_file_api_admin_files_post": {
+        "properties": {
+          "file": {
+            "type": "string",
+            "format": "binary",
+            "title": "File"
+          },
+          "purpose": {
+            "type": "string",
+            "enum": [
+              "image",
+              "brand",
+              "template",
+              "document"
+            ],
+            "title": "Purpose"
+          }
+        },
+        "type": "object",
+        "required": [
+          "file",
+          "purpose"
+        ],
+        "title": "Body_upload_file_api_admin_files_post"
+      },
+      "Config": {
+        "properties": {
+          "company": {
+            "type": "string",
+            "maxLength": 100,
+            "minLength": 1,
+            "title": "Company",
+            "default": "RAUM & WERT"
+          },
+          "tagline": {
+            "type": "string",
+            "title": "Tagline",
+            "default": "IMMOBILIEN"
+          },
+          "city": {
+            "type": "string",
+            "title": "City",
+            "default": "Hamburg"
+          },
+          "address": {
+            "type": "string",
+            "title": "Address",
+            "default": ""
+          },
+          "email": {
+            "type": "string",
+            "title": "Email",
+            "default": ""
+          },
+          "phone": {
+            "type": "string",
+            "title": "Phone",
+            "default": ""
+          },
+          "legal": {
+            "$ref": "#/components/schemas/LegalProfile",
+            "default": {
+              "legal_form": "",
+              "representative": "",
+              "postcode": "",
+              "register_court": "",
+              "register_number": "",
+              "vat_id": "",
+              "supervisory_authority": "",
+              "professional_rules": "",
+              "responsible_content": "",
+              "reviewed": false
+            }
+          },
+          "frontend_brief": {
+            "$ref": "#/components/schemas/FrontendBrief",
+            "default": {
+              "audience": "Eigentümer, Kauf- und Mietinteressenten",
+              "style": "Klar, hochwertig, zugänglich und persönlich",
+              "wishes": ""
+            }
+          },
+          "frontend_theme": {
+            "$ref": "#/components/schemas/LayoutTheme",
+            "default": {
+              "background": "#f7f9fa",
+              "foreground": "#142736",
+              "hero_layout": "cover",
+              "card_layout": "grid",
+              "radius": 0,
+              "content_width": 1280,
+              "spacing": "normal",
+              "heading_scale": 1.0
+            }
+          },
+          "logo": {
+            "type": "string",
+            "title": "Logo",
+            "default": ""
+          },
+          "favicon": {
+            "type": "string",
+            "title": "Favicon",
+            "default": ""
+          },
+          "primary": {
+            "type": "string",
+            "title": "Primary",
+            "default": "#173c50"
+          },
+          "accent": {
+            "type": "string",
+            "title": "Accent",
+            "default": "#b18b63"
+          },
+          "font": {
+            "type": "string",
+            "enum": [
+              "modern",
+              "classic"
+            ],
+            "title": "Font",
+            "default": "modern"
+          },
+          "template": {
+            "type": "string",
+            "pattern": "^[a-z][a-z0-9-]{1,40}$",
+            "title": "Template",
+            "default": "atelier"
+          },
+          "headline": {
+            "type": "string",
+            "title": "Headline",
+            "default": "Räume für heute.\nWerte für morgen."
+          },
+          "introduction": {
+            "type": "string",
+            "title": "Introduction",
+            "default": "Besondere Immobilien. Persönliche Beratung.\nWir verbinden Ihr Zuhause mit Ihrer nächsten Perspektive."
+          },
+          "hero_image": {
+            "type": "string",
+            "title": "Hero Image",
+            "default": "/architecture.png"
+          },
+          "hero_alt": {
+            "type": "string",
+            "title": "Hero Alt",
+            "default": "Architekturillustration einer modernen Villa; kein Immobilienangebot"
+          },
+          "cta_label": {
+            "type": "string",
+            "title": "Cta Label",
+            "default": "Immobilien entdecken"
+          },
+          "cta_target": {
+            "type": "string",
+            "enum": [
+              "immobilien",
+              "kontakt"
+            ],
+            "title": "Cta Target",
+            "default": "immobilien"
+          },
+          "seo_title": {
+            "type": "string",
+            "title": "Seo Title",
+            "default": "Immobilien mit Perspektive"
+          },
+          "seo_description": {
+            "type": "string",
+            "title": "Seo Description",
+            "default": "Ihr nächstes Zuhause beginnt mit einer persönlichen Beratung."
+          },
+          "social_links": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Social Links",
+            "default": []
+          },
+          "footer_text": {
+            "type": "string",
+            "title": "Footer Text",
+            "default": "Räume mit Charakter. Beratung mit Weitblick."
+          },
+          "services_heading": {
+            "type": "string",
+            "title": "Services Heading",
+            "default": "Ihre Pläne.\nUnsere Perspektive."
+          },
+          "services_intro": {
+            "type": "string",
+            "title": "Services Intro",
+            "default": "Jede Immobilie erzählt eine Geschichte. Wir helfen Ihnen, das nächste Kapitel zu schreiben."
+          },
+          "services": {
+            "items": {
+              "$ref": "#/components/schemas/Service"
+            },
+            "type": "array",
+            "title": "Services",
+            "default": [
+              {
+                "slug": "verkaufen",
+                "title": "Werte weitergeben.",
+                "text": "Von der ersten Einschätzung bis zur Schlüsselübergabe. Mit einem guten Gefühl verkaufen.",
+                "label": "Immobilie verkaufen"
+              },
+              {
+                "slug": "vermieten",
+                "title": "Menschen verbinden.",
+                "text": "Das richtige Zuhause für die richtigen Menschen. Wir kümmern uns um die Details.",
+                "label": "Immobilie vermieten"
+              },
+              {
+                "slug": "bewertung",
+                "title": "Klarheit gewinnen.",
+                "text": "Wissen, was Ihre Immobilie wert ist. Persönlich eingeschätzt, fundiert beraten.",
+                "label": "Wert einschätzen lassen"
+              }
+            ]
+          },
+          "approach_heading": {
+            "type": "string",
+            "title": "Approach Heading",
+            "default": "Persönlich denken.\nWeitsichtig handeln."
+          },
+          "approach_text": {
+            "type": "string",
+            "title": "Approach Text",
+            "default": "Ein Zuhause ist mehr als eine Adresse. Es ist ein Gefühl. Deshalb nehmen wir uns Zeit für das, was Ihnen wichtig ist – und begleiten Sie mit Erfahrung, Klarheit und einem Blick für das Besondere."
+          },
+          "approach_image": {
+            "type": "string",
+            "title": "Approach Image",
+            "default": "/architecture.png"
+          },
+          "approach_alt": {
+            "type": "string",
+            "title": "Approach Alt",
+            "default": "Generierte Architekturillustration; kein Immobilienangebot"
+          },
+          "privacy_text": {
+            "type": "string",
+            "title": "Privacy Text",
+            "default": "RECHTLICH ZU PRÜFEN: Ihre Angaben werden zur Bearbeitung Ihrer Anfrage verwendet. Ergänzen Sie Verantwortlichen, Empfänger, Rechtsgrundlagen, Aufbewahrung und Ihre Rechte vor Veröffentlichung."
+          },
+          "legal_text": {
+            "type": "string",
+            "title": "Legal Text",
+            "default": "RECHTLICH ZU PRÜFEN: Bitte hinterlegen Sie hier die vollständigen Anbieterangaben Ihres Unternehmens."
+          },
+          "retention_days": {
+            "type": "integer",
+            "maximum": 730.0,
+            "minimum": 1.0,
+            "title": "Retention Days",
+            "default": 90
+          },
+          "disclosure_text": {
+            "type": "string",
+            "title": "Disclosure Text",
+            "default": "Laden Sie unsere Selbstauskunft herunter und füllen Sie diese in Ruhe auf Ihrem Gerät aus. Stimmen Sie die Rückgabe persönlich mit uns ab."
+          },
+          "disclosure_pdf": {
+            "type": "string",
+            "title": "Disclosure Pdf",
+            "default": ""
+          },
+          "disclosure_returns": {
+            "type": "boolean",
+            "title": "Disclosure Returns",
+            "default": false
+          },
+          "modules": {
+            "$ref": "#/components/schemas/Modules",
+            "default": {
+              "contact": true,
+              "properties": true,
+              "applications": true,
+              "disclosure": false,
+              "email": false,
+              "telegram": false,
+              "analytics": false
+            }
+          },
+          "forms": {
+            "additionalProperties": {
+              "$ref": "#/components/schemas/FormTargets"
+            },
+            "type": "object",
+            "title": "Forms",
+            "default": {
+              "contact": {
+                "email": false,
+                "phone_required": false,
+                "store": true,
+                "telegram": false
+              },
+              "application": {
+                "email": false,
+                "phone_required": false,
+                "store": true,
+                "telegram": false
+              }
+            }
+          },
+          "sections": {
+            "items": {
+              "$ref": "#/components/schemas/Section"
+            },
+            "type": "array",
+            "title": "Sections",
+            "default": [
+              {
+                "id": "hero",
+                "visible": true
+              },
+              {
+                "id": "services",
+                "visible": true
+              },
+              {
+                "id": "properties",
+                "visible": true
+              },
+              {
+                "id": "approach",
+                "visible": true
+              },
+              {
+                "id": "contact",
+                "visible": true
+              }
+            ]
+          },
+          "pages": {
+            "items": {
+              "$ref": "#/components/schemas/Page"
+            },
+            "type": "array",
+            "title": "Pages",
+            "default": [
+              {
+                "slug": "verkaufen",
+                "title": "Verkaufen",
+                "enabled": true,
+                "text": "Ihre Immobilie verdient die richtige Perspektive. Wir begleiten Sie vom ersten Gespräch bis zur Übergabe.",
+                "form": true,
+                "seo_description": ""
+              },
+              {
+                "slug": "vermieten",
+                "title": "Vermieten",
+                "enabled": true,
+                "text": "Passende Menschen für Ihre Immobilie. Persönlich, sorgfältig und vorausschauend.",
+                "form": true,
+                "seo_description": ""
+              },
+              {
+                "slug": "bewertung",
+                "title": "Bewertung",
+                "enabled": true,
+                "text": "Eine fundierte Einschätzung als Grundlage für Ihre nächste Entscheidung. Wir prüfen Ihre Angaben persönlich; es wird kein automatischer Immobilienwert berechnet.",
+                "form": true,
+                "seo_description": ""
+              },
+              {
+                "slug": "beratung",
+                "title": "Beratung",
+                "enabled": true,
+                "text": "Gute Entscheidungen beginnen mit einem offenen Gespräch.",
+                "form": true,
+                "seo_description": ""
+              },
+              {
+                "slug": "ueber-uns",
+                "title": "Über uns",
+                "enabled": true,
+                "text": "Immobilien sind für uns mehr als Quadratmeter. Sie sind der Anfang einer neuen Geschichte.",
+                "form": false,
+                "seo_description": ""
+              }
+            ]
+          }
+        },
+        "type": "object",
+        "title": "Config"
+      },
+      "DeploymentPlan": {
+        "properties": {
+          "domain": {
+            "type": "string",
+            "title": "Domain",
+            "default": ""
+          }
+        },
+        "type": "object",
+        "title": "DeploymentPlan"
+      },
+      "EventInput": {
+        "properties": {
+          "kind": {
+            "type": "string",
+            "enum": [
+              "pageview",
+              "property_view",
+              "inquiry_click"
+            ],
+            "title": "Kind"
+          },
+          "path": {
+            "type": "string",
+            "maxLength": 200,
+            "pattern": "^/[a-zA-Z0-9/_-]*$",
+            "title": "Path"
+          }
+        },
+        "type": "object",
+        "required": [
+          "kind",
+          "path"
+        ],
+        "title": "EventInput"
+      },
+      "FormTargets": {
+        "properties": {
+          "store": {
+            "type": "boolean",
+            "title": "Store",
+            "default": true
+          },
+          "email": {
+            "type": "boolean",
+            "title": "Email",
+            "default": false
+          },
+          "telegram": {
+            "type": "boolean",
+            "title": "Telegram",
+            "default": false
+          },
+          "phone_required": {
+            "type": "boolean",
+            "title": "Phone Required",
+            "default": false
+          }
+        },
+        "type": "object",
+        "title": "FormTargets"
+      },
+      "FrontendBrief": {
+        "properties": {
+          "audience": {
+            "type": "string",
+            "title": "Audience",
+            "default": "Eigentümer, Kauf- und Mietinteressenten"
+          },
+          "style": {
+            "type": "string",
+            "title": "Style",
+            "default": "Klar, hochwertig, zugänglich und persönlich"
+          },
+          "wishes": {
+            "type": "string",
+            "title": "Wishes",
+            "default": ""
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "title": "FrontendBrief"
+      },
+      "HTTPValidationError": {
+        "properties": {
+          "detail": {
+            "items": {
+              "$ref": "#/components/schemas/ValidationError"
+            },
+            "type": "array",
+            "title": "Detail"
+          }
+        },
+        "type": "object",
+        "title": "HTTPValidationError"
+      },
+      "InquiryInput": {
+        "properties": {
+          "first_name": {
+            "type": "string",
+            "maxLength": 100,
+            "minLength": 1,
+            "title": "First Name"
+          },
+          "last_name": {
+            "type": "string",
+            "maxLength": 100,
+            "minLength": 1,
+            "title": "Last Name"
+          },
+          "email": {
+            "type": "string",
+            "format": "email",
+            "title": "Email"
+          },
+          "phone": {
+            "type": "string",
+            "maxLength": 50,
+            "title": "Phone",
+            "default": ""
+          },
+          "subject": {
+            "type": "string",
+            "maxLength": 150,
+            "title": "Subject",
+            "default": "Kontakt"
+          },
+          "message": {
+            "type": "string",
+            "maxLength": 10000,
+            "minLength": 5,
+            "title": "Message"
+          },
+          "consent": {
+            "type": "boolean",
+            "title": "Consent"
+          },
+          "property_id": {
+            "anyOf": [
+              {
+                "type": "integer",
+                "exclusiveMinimum": 0.0
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Property Id"
+          },
+          "website": {
+            "type": "string",
+            "maxLength": 200,
+            "title": "Website",
+            "default": ""
+          },
+          "page": {
+            "type": "string",
+            "maxLength": 61,
+            "title": "Page",
+            "default": ""
+          }
+        },
+        "type": "object",
+        "required": [
+          "first_name",
+          "last_name",
+          "email",
+          "message",
+          "consent"
+        ],
+        "title": "InquiryInput"
+      },
+      "InquiryUpdate": {
+        "properties": {
+          "status": {
+            "type": "string",
+            "enum": [
+              "new",
+              "processing",
+              "answered",
+              "closed"
+            ],
+            "title": "Status"
+          },
+          "notes": {
+            "type": "string",
+            "maxLength": 20000,
+            "title": "Notes",
+            "default": ""
+          }
+        },
+        "type": "object",
+        "required": [
+          "status"
+        ],
+        "title": "InquiryUpdate"
+      },
+      "LayoutTheme": {
+        "properties": {
+          "background": {
+            "type": "string",
+            "pattern": "^#[0-9a-fA-F]{6}$",
+            "title": "Background",
+            "default": "#f7f9fa"
+          },
+          "foreground": {
+            "type": "string",
+            "pattern": "^#[0-9a-fA-F]{6}$",
+            "title": "Foreground",
+            "default": "#142736"
+          },
+          "hero_layout": {
+            "type": "string",
+            "enum": [
+              "cover",
+              "split"
+            ],
+            "title": "Hero Layout",
+            "default": "cover"
+          },
+          "card_layout": {
+            "type": "string",
+            "enum": [
+              "grid",
+              "list"
+            ],
+            "title": "Card Layout",
+            "default": "grid"
+          },
+          "radius": {
+            "type": "integer",
+            "maximum": 32.0,
+            "minimum": 0.0,
+            "title": "Radius",
+            "default": 0
+          },
+          "content_width": {
+            "type": "integer",
+            "maximum": 1600.0,
+            "minimum": 960.0,
+            "title": "Content Width",
+            "default": 1280
+          },
+          "spacing": {
+            "type": "string",
+            "enum": [
+              "compact",
+              "normal",
+              "generous"
+            ],
+            "title": "Spacing",
+            "default": "normal"
+          },
+          "heading_scale": {
+            "type": "number",
+            "maximum": 1.3,
+            "minimum": 0.8,
+            "title": "Heading Scale",
+            "default": 1
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "title": "LayoutTheme"
+      },
+      "LegalProfile": {
+        "properties": {
+          "legal_form": {
+            "type": "string",
+            "title": "Legal Form",
+            "default": ""
+          },
+          "representative": {
+            "type": "string",
+            "title": "Representative",
+            "default": ""
+          },
+          "postcode": {
+            "type": "string",
+            "title": "Postcode",
+            "default": ""
+          },
+          "register_court": {
+            "type": "string",
+            "title": "Register Court",
+            "default": ""
+          },
+          "register_number": {
+            "type": "string",
+            "title": "Register Number",
+            "default": ""
+          },
+          "vat_id": {
+            "type": "string",
+            "title": "Vat Id",
+            "default": ""
+          },
+          "supervisory_authority": {
+            "type": "string",
+            "title": "Supervisory Authority",
+            "default": ""
+          },
+          "professional_rules": {
+            "type": "string",
+            "title": "Professional Rules",
+            "default": ""
+          },
+          "responsible_content": {
+            "type": "string",
+            "title": "Responsible Content",
+            "default": ""
+          },
+          "reviewed": {
+            "type": "boolean",
+            "title": "Reviewed",
+            "default": false
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "title": "LegalProfile"
+      },
+      "Login": {
+        "properties": {
+          "email": {
+            "type": "string",
+            "format": "email",
+            "title": "Email"
+          },
+          "password": {
+            "type": "string",
+            "maxLength": 512,
+            "title": "Password"
+          }
+        },
+        "type": "object",
+        "required": [
+          "email",
+          "password"
+        ],
+        "title": "Login"
+      },
+      "Manifest": {
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z][a-z0-9-]{1,40}$",
+            "title": "Id"
+          },
+          "name": {
+            "type": "string",
+            "maxLength": 100,
+            "minLength": 1,
+            "title": "Name"
+          },
+          "version": {
+            "type": "integer",
+            "enum": [
+              1,
+              2
+            ],
+            "title": "Version"
+          },
+          "adapter": {
+            "type": "string",
+            "enum": [
+              "atelier",
+              "editorial"
+            ],
+            "title": "Adapter"
+          },
+          "theme": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/Theme"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "pages": {
+            "items": {
+              "type": "string",
+              "enum": [
+                "home",
+                "properties",
+                "property",
+                "contact",
+                "disclosure",
+                "content"
+              ]
+            },
+            "type": "array",
+            "title": "Pages"
+          },
+          "actions": {
+            "items": {
+              "type": "string",
+              "enum": [
+                "search",
+                "inquiry",
+                "download",
+                "return"
+              ]
+            },
+            "type": "array",
+            "title": "Actions"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "id",
+          "name",
+          "version",
+          "adapter",
+          "pages",
+          "actions"
+        ],
+        "title": "Manifest"
+      },
+      "Modules": {
+        "properties": {
+          "contact": {
+            "type": "boolean",
+            "title": "Contact",
+            "default": true
+          },
+          "properties": {
+            "type": "boolean",
+            "title": "Properties",
+            "default": true
+          },
+          "applications": {
+            "type": "boolean",
+            "title": "Applications",
+            "default": true
+          },
+          "disclosure": {
+            "type": "boolean",
+            "title": "Disclosure",
+            "default": false
+          },
+          "email": {
+            "type": "boolean",
+            "title": "Email",
+            "default": false
+          },
+          "telegram": {
+            "type": "boolean",
+            "title": "Telegram",
+            "default": false
+          },
+          "analytics": {
+            "type": "boolean",
+            "title": "Analytics",
+            "default": false
+          }
+        },
+        "type": "object",
+        "title": "Modules"
+      },
+      "Page": {
+        "properties": {
+          "slug": {
+            "type": "string",
+            "title": "Slug"
+          },
+          "title": {
+            "type": "string",
+            "title": "Title"
+          },
+          "enabled": {
+            "type": "boolean",
+            "title": "Enabled",
+            "default": true
+          },
+          "text": {
+            "type": "string",
+            "title": "Text",
+            "default": ""
+          },
+          "form": {
+            "type": "boolean",
+            "title": "Form",
+            "default": true
+          },
+          "seo_description": {
+            "type": "string",
+            "title": "Seo Description",
+            "default": ""
+          }
+        },
+        "type": "object",
+        "required": [
+          "slug",
+          "title"
+        ],
+        "title": "Page"
+      },
+      "PropertyData": {
+        "properties": {
+          "number": {
+            "type": "string",
+            "title": "Number",
+            "default": ""
+          },
+          "title": {
+            "type": "string",
+            "maxLength": 160,
+            "minLength": 3,
+            "title": "Title"
+          },
+          "slug": {
+            "type": "string",
+            "maxLength": 160,
+            "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+            "title": "Slug"
+          },
+          "offer": {
+            "type": "string",
+            "enum": [
+              "rent",
+              "sale"
+            ],
+            "title": "Offer",
+            "default": "sale"
+          },
+          "type": {
+            "type": "string",
+            "enum": [
+              "house",
+              "apartment"
+            ],
+            "title": "Type",
+            "default": "house"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "draft",
+              "published",
+              "reserved",
+              "sold",
+              "archived"
+            ],
+            "title": "Status",
+            "default": "draft"
+          },
+          "street": {
+            "type": "string",
+            "title": "Street",
+            "default": ""
+          },
+          "house_number": {
+            "type": "string",
+            "title": "House Number",
+            "default": ""
+          },
+          "postcode": {
+            "type": "string",
+            "title": "Postcode",
+            "default": ""
+          },
+          "city": {
+            "type": "string",
+            "title": "City",
+            "default": ""
+          },
+          "district": {
+            "type": "string",
+            "title": "District",
+            "default": ""
+          },
+          "show_address": {
+            "type": "boolean",
+            "title": "Show Address",
+            "default": false
+          },
+          "available": {
+            "type": "string",
+            "title": "Available",
+            "default": ""
+          },
+          "contact": {
+            "type": "string",
+            "title": "Contact",
+            "default": ""
+          },
+          "area": {
+            "type": "number",
+            "minimum": 0.0,
+            "title": "Area",
+            "default": 0
+          },
+          "land_area": {
+            "type": "number",
+            "minimum": 0.0,
+            "title": "Land Area",
+            "default": 0
+          },
+          "rooms": {
+            "type": "number",
+            "minimum": 0.0,
+            "title": "Rooms",
+            "default": 0
+          },
+          "bedrooms": {
+            "type": "integer",
+            "minimum": 0.0,
+            "title": "Bedrooms",
+            "default": 0
+          },
+          "bathrooms": {
+            "type": "integer",
+            "minimum": 0.0,
+            "title": "Bathrooms",
+            "default": 0
+          },
+          "floor": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Floor"
+          },
+          "floors": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Floors"
+          },
+          "year": {
+            "anyOf": [
+              {
+                "type": "integer",
+                "maximum": 2200.0,
+                "minimum": 1700.0
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Year"
+          },
+          "modernized": {
+            "anyOf": [
+              {
+                "type": "integer",
+                "maximum": 2200.0,
+                "minimum": 1700.0
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Modernized"
+          },
+          "condition": {
+            "type": "string",
+            "title": "Condition",
+            "default": ""
+          },
+          "furnished": {
+            "type": "string",
+            "title": "Furnished",
+            "default": ""
+          },
+          "accessibility": {
+            "type": "string",
+            "title": "Accessibility",
+            "default": ""
+          },
+          "pets": {
+            "type": "string",
+            "title": "Pets",
+            "default": ""
+          },
+          "features": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Features",
+            "default": []
+          },
+          "price": {
+            "type": "number",
+            "minimum": 0.0,
+            "title": "Price",
+            "default": 0
+          },
+          "service_charge": {
+            "type": "number",
+            "minimum": 0.0,
+            "title": "Service Charge",
+            "default": 0
+          },
+          "heating_cost": {
+            "type": "number",
+            "minimum": 0.0,
+            "title": "Heating Cost",
+            "default": 0
+          },
+          "heating_included": {
+            "type": "boolean",
+            "title": "Heating Included",
+            "default": true
+          },
+          "deposit": {
+            "type": "number",
+            "minimum": 0.0,
+            "title": "Deposit",
+            "default": 0
+          },
+          "parking_cost": {
+            "type": "number",
+            "minimum": 0.0,
+            "title": "Parking Cost",
+            "default": 0
+          },
+          "furniture_cost": {
+            "type": "number",
+            "minimum": 0.0,
+            "title": "Furniture Cost",
+            "default": 0
+          },
+          "maintenance": {
+            "type": "number",
+            "minimum": 0.0,
+            "title": "Maintenance",
+            "default": 0
+          },
+          "commission": {
+            "type": "string",
+            "title": "Commission",
+            "default": ""
+          },
+          "heating": {
+            "type": "string",
+            "title": "Heating",
+            "default": ""
+          },
+          "energy_source": {
+            "type": "string",
+            "title": "Energy Source",
+            "default": ""
+          },
+          "certificate": {
+            "type": "string",
+            "enum": [
+              "unknown",
+              "demand",
+              "consumption",
+              "exempt"
+            ],
+            "title": "Certificate",
+            "default": "unknown"
+          },
+          "energy_value": {
+            "anyOf": [
+              {
+                "type": "number",
+                "minimum": 0.0
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Energy Value"
+          },
+          "energy_class": {
+            "type": "string",
+            "title": "Energy Class",
+            "default": ""
+          },
+          "energy_until": {
+            "type": "string",
+            "title": "Energy Until",
+            "default": ""
+          },
+          "energy_year": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Energy Year"
+          },
+          "exemption_reason": {
+            "type": "string",
+            "title": "Exemption Reason",
+            "default": ""
+          },
+          "description": {
+            "type": "string",
+            "title": "Description",
+            "default": ""
+          },
+          "equipment": {
+            "type": "string",
+            "title": "Equipment",
+            "default": ""
+          },
+          "location": {
+            "type": "string",
+            "title": "Location",
+            "default": ""
+          },
+          "notes": {
+            "type": "string",
+            "title": "Notes",
+            "default": ""
+          },
+          "images": {
+            "items": {
+              "additionalProperties": {
+                "type": "string"
+              },
+              "type": "object"
+            },
+            "type": "array",
+            "title": "Images",
+            "default": []
+          },
+          "documents": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Documents",
+            "default": []
+          }
+        },
+        "type": "object",
+        "required": [
+          "title",
+          "slug"
+        ],
+        "title": "PropertyData"
+      },
+      "Section": {
+        "properties": {
+          "id": {
+            "type": "string",
+            "enum": [
+              "hero",
+              "services",
+              "properties",
+              "approach",
+              "contact"
+            ],
+            "title": "Id"
+          },
+          "visible": {
+            "type": "boolean",
+            "title": "Visible",
+            "default": true
+          }
+        },
+        "type": "object",
+        "required": [
+          "id"
+        ],
+        "title": "Section"
+      },
+      "Service": {
+        "properties": {
+          "slug": {
+            "type": "string",
+            "title": "Slug"
+          },
+          "title": {
+            "type": "string",
+            "title": "Title"
+          },
+          "text": {
+            "type": "string",
+            "title": "Text"
+          },
+          "label": {
+            "type": "string",
+            "title": "Label"
+          }
+        },
+        "type": "object",
+        "required": [
+          "slug",
+          "title",
+          "text",
+          "label"
+        ],
+        "title": "Service"
+      },
+      "Theme": {
+        "properties": {
+          "background": {
+            "type": "string",
+            "pattern": "^#[0-9a-fA-F]{6}$",
+            "title": "Background",
+            "default": "#f7f9fa"
+          },
+          "foreground": {
+            "type": "string",
+            "pattern": "^#[0-9a-fA-F]{6}$",
+            "title": "Foreground",
+            "default": "#142736"
+          },
+          "hero_layout": {
+            "type": "string",
+            "enum": [
+              "cover",
+              "split"
+            ],
+            "title": "Hero Layout",
+            "default": "cover"
+          },
+          "card_layout": {
+            "type": "string",
+            "enum": [
+              "grid",
+              "list"
+            ],
+            "title": "Card Layout",
+            "default": "grid"
+          },
+          "radius": {
+            "type": "integer",
+            "maximum": 32.0,
+            "minimum": 0.0,
+            "title": "Radius",
+            "default": 0
+          },
+          "content_width": {
+            "type": "integer",
+            "maximum": 1600.0,
+            "minimum": 960.0,
+            "title": "Content Width",
+            "default": 1280
+          },
+          "spacing": {
+            "type": "string",
+            "enum": [
+              "compact",
+              "normal",
+              "generous"
+            ],
+            "title": "Spacing",
+            "default": "normal"
+          },
+          "heading_scale": {
+            "type": "number",
+            "maximum": 1.3,
+            "minimum": 0.8,
+            "title": "Heading Scale",
+            "default": 1
+          },
+          "primary": {
+            "type": "string",
+            "pattern": "^#[0-9a-fA-F]{6}$",
+            "title": "Primary",
+            "default": "#173c50"
+          },
+          "accent": {
+            "type": "string",
+            "pattern": "^#[0-9a-fA-F]{6}$",
+            "title": "Accent",
+            "default": "#b18b63"
+          },
+          "font": {
+            "type": "string",
+            "enum": [
+              "modern",
+              "classic"
+            ],
+            "title": "Font",
+            "default": "modern"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "title": "Theme"
+      },
+      "UserInput": {
+        "properties": {
+          "email": {
+            "type": "string",
+            "format": "email",
+            "title": "Email"
+          },
+          "password": {
+            "type": "string",
+            "maxLength": 200,
+            "minLength": 12,
+            "title": "Password"
+          },
+          "role": {
+            "type": "string",
+            "enum": [
+              "admin",
+              "staff"
+            ],
+            "title": "Role",
+            "default": "staff"
+          }
+        },
+        "type": "object",
+        "required": [
+          "email",
+          "password"
+        ],
+        "title": "UserInput"
+      },
+      "UserUpdate": {
+        "properties": {
+          "role": {
+            "anyOf": [
+              {
+                "type": "string",
+                "enum": [
+                  "admin",
+                  "staff"
+                ]
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Role"
+          },
+          "active": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Active"
+          },
+          "password": {
+            "anyOf": [
+              {
+                "type": "string",
+                "maxLength": 200,
+                "minLength": 12
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Password"
+          }
+        },
+        "type": "object",
+        "title": "UserUpdate"
+      },
+      "ValidationError": {
+        "properties": {
+          "loc": {
+            "items": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "integer"
+                }
+              ]
+            },
+            "type": "array",
+            "title": "Location"
+          },
+          "msg": {
+            "type": "string",
+            "title": "Message"
+          },
+          "type": {
+            "type": "string",
+            "title": "Error Type"
+          }
+        },
+        "type": "object",
+        "required": [
+          "loc",
+          "msg",
+          "type"
+        ],
+        "title": "ValidationError"
+      }
+    }
+  }
+}

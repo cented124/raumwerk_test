@@ -1,0 +1,109 @@
+/* Public presentation only. Admin and all runtime theme controls remain independent. */
+.website {
+  --heading: Georgia, 'Times New Roman', serif;
+  color: var(--site-foreground);
+  background: var(--site-background);
+}
+.website.modern { --heading: 'Barlow Condensed', sans-serif; }
+.website .site-header { background: var(--site-background); border-bottom: 1px solid color-mix(in srgb, var(--primary) 15%, transparent); padding: 22px max(5%, calc((100% - var(--site-width)) / 2)); min-height: 100px; }
+.website .site-header .brand { position: relative; padding-left: 49px; max-width: 33%; color: var(--primary); }
+.website .brand-symbol { position: absolute; left: 0; top: 2px; color: var(--accent); }
+.website .brand > span { font-family: Georgia, serif; font-size: 22px; letter-spacing: -.5px; }
+.website .brand > small { font-size: 8px; letter-spacing: 3.4px; }
+.website .site-header nav { gap: 23px; font-size: 11px; }
+.website .account-link { font-size: 10px; gap: 8px; }
+.website .hero { min-height: 690px; max-height: 920px; height: calc(100svh - 100px); background: var(--primary); }
+.website .hero-image { object-position: 65% center; }
+.website.hero-cover .hero-shade { background: linear-gradient(90deg, rgba(9,29,41,.97), rgba(10,31,43,.76) 35%, rgba(10,31,43,.08) 75%), linear-gradient(0deg, rgba(10,31,43,.72), transparent 30%); }
+.website .hero-inner { padding: 100px max(6%, calc((100vw - var(--site-width)) / 2)) 90px; max-width: none; }
+.website .hero .eyebrow { color: #e6d6bd; font-size: 10px; letter-spacing: 2.5px; }
+.website .hero .eyebrow > span { background: var(--accent); }
+.website .hero h1 { max-width: 850px; font-size: clamp(62px, calc(6.8vw * var(--site-heading-scale)), 138px); font-weight: 400; line-height: 1.04; margin: 34px 0 30px; letter-spacing: -.8px; }
+.website .hero h1 span + span { color: #e1c5a0; }
+.website .hero-inner > p { font-size: 14px; line-height: 1.95; max-width: 550px; }
+.website .hero-actions { margin-top: 36px; gap: 28px; flex-wrap: wrap; }
+.website .button { min-height: 50px; font-size: 11px; padding: 17px 24px; gap: 24px; }
+.website .button.light { color: var(--primary); background: #f7f3eb; border: 1px solid #f7f3eb; }
+.website .button:hover { transform: translateY(-2px); }
+.website .hero-contact { margin-top: 36px; opacity: .8; }
+.website .hero-bottom { padding: 24px 6%; border-top: 1px solid #ffffff25; font-size: 10px; letter-spacing: .3px; }
+.website .section { scroll-margin-top: 30px; }
+.website .section-title { align-items: end; margin-bottom: 48px; }
+.website h2 { font-weight: 400; line-height: 1.12; }
+.website .section-title h2, .website .approach h2 { font-size: clamp(38px, 4.4vw, 64px); }
+.website .eyebrow { color: var(--primary); font-size: 9px; letter-spacing: 2px; }
+.website .eyebrow > span { background: var(--accent); }
+.website .services { padding-top: 100px; padding-bottom: 100px; }
+.website .service-grid { gap: 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.website .service-card { background: transparent; border: 0; padding: 36px; transition: background .2s; }
+.website .service-card + .service-card { border-left: 1px solid var(--line); }
+.website .service-card:hover { background: color-mix(in srgb, var(--accent) 9%, var(--site-background)); }
+.website .service-top { color: var(--primary); }
+.website .service-top small { font-family: Georgia, serif; font-size: 14px; color: var(--primary); }
+.website .service-card h3 { font-size: 31px; font-weight: 400; }
+.website .service-card p { font-size: 12px; line-height: 1.9; }
+.website .service-card > span { color: var(--primary); font-size: 10px; }
+.website .offers-section { background: color-mix(in srgb, var(--primary) 4%, var(--site-background)); padding-top: 90px; padding-bottom: 90px; }
+.website .empty-properties { border: 1px solid color-mix(in srgb, var(--primary) 18%, transparent); background: var(--site-background); padding: 55px 24px; }
+.website .empty-properties h3 { font-size: 33px; font-weight: 400; }
+.website .approach { padding-top: 110px; padding-bottom: 110px; gap: 9%; align-items: center; }
+.website .approach-image { border: 1px solid var(--line); padding: 12px; }
+.website .approach-image img { height: 430px; object-position: 63% center; }
+.website .approach-image > span { left: 30px; bottom: 30px; font-size: 11px; }
+.website .approach p { font-size: 13px; line-height: 2; }
+.website .contact-band { background: var(--primary); padding: 66px 6%; border-top: 3px solid var(--accent); }
+.website .contact-band .eyebrow { color: #e1c5a0; }
+.website .contact-band h2 { font-size: clamp(36px, 4.5vw, 64px); }
+.website .site-footer { background: var(--site-background); padding-top: 62px; }
+.website .site-footer .brand > span { font-size: 25px; }
+.website .footer-bottom { margin-top: 45px; font-size: 10px; }
+.website .content-page h1 { font-weight: 400; }
+.website .contact-form input, .website .contact-form textarea, .website .contact-form select { font-size: 14px; min-height: 46px; }
+.website :focus-visible { outline: 3px solid var(--primary); outline-offset: 5px; }
+.website .hero :focus-visible, .website .contact-band :focus-visible { outline-color: #f6d4a5; }
+.website .text-link { min-height: 36px; }
+@media (max-width: 1200px) {
+  .website .site-header nav { gap: 13px; }
+  .website .site-header { padding-inline: 4%; gap: 15px; }
+  .website .site-header .brand > span { font-size: 19px; }
+}
+@media (max-width: 1000px) {
+  .website .mobile-menu { display: grid; }
+  .website .site-header .brand { max-width: calc(100% - 65px); }
+  .website .site-header nav { display: none; }
+  .website .site-header nav.open { display: flex; position: absolute; z-index: 20; top: 100px; left: 0; right: 0; padding: 28px 6%; background: var(--site-background); flex-direction: column; align-items: stretch; gap: 0; box-shadow: 0 12px 18px #102b4020; }
+  .website .site-header nav.open a { padding: 13px 0; border-bottom: 1px solid var(--line); }
+  .website .account-link { border-left: 0; }
+  .website .hero h1 { font-size: calc(76px * var(--site-heading-scale)); }
+  .website .service-card { padding: 28px 20px; }
+}
+@media (max-width: 600px) {
+  .website .site-header { min-height: 84px; padding: 16px 6%; }
+  .website .site-header nav.open { top: 84px; }
+  .website .brand > span { font-size: 20px; }
+  .website .hero { height: auto; min-height: 720px; max-height: none; }
+  .website .hero-image { object-position: 63% center; opacity: .62; }
+  .website.hero-cover .hero-shade { background: linear-gradient(90deg, #0b2537db, #0b25376b), linear-gradient(0deg, #0b2537, transparent); }
+  .website .hero-inner { padding: 70px 7% 135px; }
+  .website .hero h1 { font-size: clamp(45px, calc(12vw * var(--site-heading-scale)), 90px); line-height: 1.06; margin: 28px 0; }
+  .website .hero .eyebrow { font-size: 8px; letter-spacing: 1.4px; }
+  .website .hero-inner > p { font-size: 12px; }
+  .website .hero-actions { flex-direction: column; align-items: flex-start; gap: 16px; margin-top: 26px; }
+  .website .hero-bottom { padding: 20px 7%; align-items: flex-start; gap: 16px; }
+  .website .hero-bottom > span { display: none; }
+  .website .hero-contact { font-size: 10px; }
+  .website .services, .website .offers-section, .website .approach { padding-top: 62px; padding-bottom: 62px; }
+  .website .section-title { gap: 24px; margin-bottom: 30px; }
+  .website .service-grid { grid-template-columns: 1fr; }
+  .website .service-card { padding: 28px 4px; }
+  .website .service-card + .service-card { border-left: 0; border-top: 1px solid var(--line); }
+  .website .service-card h3 { font-size: 30px; }
+  .website .approach { gap: 35px; }
+  .website .approach-image img { height: 310px; }
+  .website .contact-band { padding: 45px 7%; gap: 28px; }
+  .website .footer-bottom { gap: 18px; }
+}
+.website .section p, .website .service-card p, .website .approach p, .website .site-footer p { color: #52636e; }
+.website .section-title h2 span, .website .contact-intro h1 span { color: #526b7a; }
+.website .contact-band h2 span { color: #d2e0e7; }
+@media (min-width: 1001px) { .website .site-header nav { gap: 17px; } }

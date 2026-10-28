@@ -1,0 +1,673 @@
+{
+  "$defs": {
+    "FormTargets": {
+      "properties": {
+        "store": {
+          "default": true,
+          "title": "Store",
+          "type": "boolean"
+        },
+        "email": {
+          "default": false,
+          "title": "Email",
+          "type": "boolean"
+        },
+        "telegram": {
+          "default": false,
+          "title": "Telegram",
+          "type": "boolean"
+        },
+        "phone_required": {
+          "default": false,
+          "title": "Phone Required",
+          "type": "boolean"
+        }
+      },
+      "title": "FormTargets",
+      "type": "object"
+    },
+    "FrontendBrief": {
+      "additionalProperties": false,
+      "properties": {
+        "audience": {
+          "default": "Eigentümer, Kauf- und Mietinteressenten",
+          "title": "Audience",
+          "type": "string"
+        },
+        "style": {
+          "default": "Klar, hochwertig, zugänglich und persönlich",
+          "title": "Style",
+          "type": "string"
+        },
+        "wishes": {
+          "default": "",
+          "title": "Wishes",
+          "type": "string"
+        }
+      },
+      "title": "FrontendBrief",
+      "type": "object"
+    },
+    "LayoutTheme": {
+      "additionalProperties": false,
+      "properties": {
+        "background": {
+          "default": "#f7f9fa",
+          "pattern": "^#[0-9a-fA-F]{6}$",
+          "title": "Background",
+          "type": "string"
+        },
+        "foreground": {
+          "default": "#142736",
+          "pattern": "^#[0-9a-fA-F]{6}$",
+          "title": "Foreground",
+          "type": "string"
+        },
+        "hero_layout": {
+          "default": "cover",
+          "enum": [
+            "cover",
+            "split"
+          ],
+          "title": "Hero Layout",
+          "type": "string"
+        },
+        "card_layout": {
+          "default": "grid",
+          "enum": [
+            "grid",
+            "list"
+          ],
+          "title": "Card Layout",
+          "type": "string"
+        },
+        "radius": {
+          "default": 0,
+          "maximum": 32,
+          "minimum": 0,
+          "title": "Radius",
+          "type": "integer"
+        },
+        "content_width": {
+          "default": 1280,
+          "maximum": 1600,
+          "minimum": 960,
+          "title": "Content Width",
+          "type": "integer"
+        },
+        "spacing": {
+          "default": "normal",
+          "enum": [
+            "compact",
+            "normal",
+            "generous"
+          ],
+          "title": "Spacing",
+          "type": "string"
+        },
+        "heading_scale": {
+          "default": 1,
+          "maximum": 1.3,
+          "minimum": 0.8,
+          "title": "Heading Scale",
+          "type": "number"
+        }
+      },
+      "title": "LayoutTheme",
+      "type": "object"
+    },
+    "LegalProfile": {
+      "additionalProperties": false,
+      "properties": {
+        "legal_form": {
+          "default": "",
+          "title": "Legal Form",
+          "type": "string"
+        },
+        "representative": {
+          "default": "",
+          "title": "Representative",
+          "type": "string"
+        },
+        "postcode": {
+          "default": "",
+          "title": "Postcode",
+          "type": "string"
+        },
+        "register_court": {
+          "default": "",
+          "title": "Register Court",
+          "type": "string"
+        },
+        "register_number": {
+          "default": "",
+          "title": "Register Number",
+          "type": "string"
+        },
+        "vat_id": {
+          "default": "",
+          "title": "Vat Id",
+          "type": "string"
+        },
+        "supervisory_authority": {
+          "default": "",
+          "title": "Supervisory Authority",
+          "type": "string"
+        },
+        "professional_rules": {
+          "default": "",
+          "title": "Professional Rules",
+          "type": "string"
+        },
+        "responsible_content": {
+          "default": "",
+          "title": "Responsible Content",
+          "type": "string"
+        },
+        "reviewed": {
+          "default": false,
+          "title": "Reviewed",
+          "type": "boolean"
+        }
+      },
+      "title": "LegalProfile",
+      "type": "object"
+    },
+    "Modules": {
+      "properties": {
+        "contact": {
+          "default": true,
+          "title": "Contact",
+          "type": "boolean"
+        },
+        "properties": {
+          "type": "boolean",
+          "default": true,
+          "title": "Properties"
+        },
+        "applications": {
+          "default": true,
+          "title": "Applications",
+          "type": "boolean"
+        },
+        "disclosure": {
+          "default": false,
+          "title": "Disclosure",
+          "type": "boolean"
+        },
+        "email": {
+          "default": false,
+          "title": "Email",
+          "type": "boolean"
+        },
+        "telegram": {
+          "default": false,
+          "title": "Telegram",
+          "type": "boolean"
+        },
+        "analytics": {
+          "default": false,
+          "title": "Analytics",
+          "type": "boolean"
+        }
+      },
+      "title": "Modules",
+      "type": "object"
+    },
+    "Page": {
+      "properties": {
+        "slug": {
+          "title": "Slug",
+          "type": "string"
+        },
+        "title": {
+          "title": "Title",
+          "type": "string"
+        },
+        "enabled": {
+          "default": true,
+          "title": "Enabled",
+          "type": "boolean"
+        },
+        "text": {
+          "default": "",
+          "title": "Text",
+          "type": "string"
+        },
+        "form": {
+          "default": true,
+          "title": "Form",
+          "type": "boolean"
+        },
+        "seo_description": {
+          "default": "",
+          "title": "Seo Description",
+          "type": "string"
+        }
+      },
+      "required": [
+        "slug",
+        "title"
+      ],
+      "title": "Page",
+      "type": "object"
+    },
+    "Section": {
+      "properties": {
+        "id": {
+          "enum": [
+            "hero",
+            "services",
+            "properties",
+            "approach",
+            "contact"
+          ],
+          "title": "Id",
+          "type": "string"
+        },
+        "visible": {
+          "default": true,
+          "title": "Visible",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "title": "Section",
+      "type": "object"
+    },
+    "Service": {
+      "properties": {
+        "slug": {
+          "title": "Slug",
+          "type": "string"
+        },
+        "title": {
+          "title": "Title",
+          "type": "string"
+        },
+        "text": {
+          "title": "Text",
+          "type": "string"
+        },
+        "label": {
+          "title": "Label",
+          "type": "string"
+        }
+      },
+      "required": [
+        "slug",
+        "title",
+        "text",
+        "label"
+      ],
+      "title": "Service",
+      "type": "object"
+    }
+  },
+  "properties": {
+    "company": {
+      "default": "RAUM & WERT",
+      "maxLength": 100,
+      "minLength": 1,
+      "title": "Company",
+      "type": "string"
+    },
+    "tagline": {
+      "default": "IMMOBILIEN",
+      "title": "Tagline",
+      "type": "string"
+    },
+    "city": {
+      "default": "Hamburg",
+      "title": "City",
+      "type": "string"
+    },
+    "address": {
+      "default": "",
+      "title": "Address",
+      "type": "string"
+    },
+    "email": {
+      "default": "",
+      "title": "Email",
+      "type": "string"
+    },
+    "phone": {
+      "default": "",
+      "title": "Phone",
+      "type": "string"
+    },
+    "legal": {
+      "$ref": "#/$defs/LegalProfile",
+      "default": {
+        "legal_form": "",
+        "representative": "",
+        "postcode": "",
+        "register_court": "",
+        "register_number": "",
+        "vat_id": "",
+        "supervisory_authority": "",
+        "professional_rules": "",
+        "responsible_content": "",
+        "reviewed": false
+      }
+    },
+    "frontend_brief": {
+      "$ref": "#/$defs/FrontendBrief",
+      "default": {
+        "audience": "Eigentümer, Kauf- und Mietinteressenten",
+        "style": "Klar, hochwertig, zugänglich und persönlich",
+        "wishes": ""
+      }
+    },
+    "frontend_theme": {
+      "$ref": "#/$defs/LayoutTheme",
+      "default": {
+        "background": "#f7f9fa",
+        "foreground": "#142736",
+        "hero_layout": "cover",
+        "card_layout": "grid",
+        "radius": 0,
+        "content_width": 1280,
+        "spacing": "normal",
+        "heading_scale": 1.0
+      }
+    },
+    "logo": {
+      "default": "",
+      "title": "Logo",
+      "type": "string"
+    },
+    "favicon": {
+      "default": "",
+      "title": "Favicon",
+      "type": "string"
+    },
+    "primary": {
+      "default": "#173c50",
+      "title": "Primary",
+      "type": "string"
+    },
+    "accent": {
+      "default": "#b18b63",
+      "title": "Accent",
+      "type": "string"
+    },
+    "font": {
+      "default": "modern",
+      "enum": [
+        "modern",
+        "classic"
+      ],
+      "title": "Font",
+      "type": "string"
+    },
+    "template": {
+      "default": "atelier",
+      "pattern": "^[a-z][a-z0-9-]{1,40}$",
+      "title": "Template",
+      "type": "string"
+    },
+    "headline": {
+      "default": "Räume für heute.\nWerte für morgen.",
+      "title": "Headline",
+      "type": "string"
+    },
+    "introduction": {
+      "default": "Besondere Immobilien. Persönliche Beratung.\nWir verbinden Ihr Zuhause mit Ihrer nächsten Perspektive.",
+      "title": "Introduction",
+      "type": "string"
+    },
+    "hero_image": {
+      "default": "/architecture.png",
+      "title": "Hero Image",
+      "type": "string"
+    },
+    "hero_alt": {
+      "default": "Architekturillustration einer modernen Villa; kein Immobilienangebot",
+      "title": "Hero Alt",
+      "type": "string"
+    },
+    "cta_label": {
+      "default": "Immobilien entdecken",
+      "title": "Cta Label",
+      "type": "string"
+    },
+    "cta_target": {
+      "default": "immobilien",
+      "enum": [
+        "immobilien",
+        "kontakt"
+      ],
+      "title": "Cta Target",
+      "type": "string"
+    },
+    "seo_title": {
+      "default": "Immobilien mit Perspektive",
+      "title": "Seo Title",
+      "type": "string"
+    },
+    "seo_description": {
+      "default": "Ihr nächstes Zuhause beginnt mit einer persönlichen Beratung.",
+      "title": "Seo Description",
+      "type": "string"
+    },
+    "social_links": {
+      "default": [],
+      "items": {
+        "type": "string"
+      },
+      "title": "Social Links",
+      "type": "array"
+    },
+    "footer_text": {
+      "default": "Räume mit Charakter. Beratung mit Weitblick.",
+      "title": "Footer Text",
+      "type": "string"
+    },
+    "services_heading": {
+      "default": "Ihre Pläne.\nUnsere Perspektive.",
+      "title": "Services Heading",
+      "type": "string"
+    },
+    "services_intro": {
+      "default": "Jede Immobilie erzählt eine Geschichte. Wir helfen Ihnen, das nächste Kapitel zu schreiben.",
+      "title": "Services Intro",
+      "type": "string"
+    },
+    "services": {
+      "default": [
+        {
+          "slug": "verkaufen",
+          "title": "Werte weitergeben.",
+          "text": "Von der ersten Einschätzung bis zur Schlüsselübergabe. Mit einem guten Gefühl verkaufen.",
+          "label": "Immobilie verkaufen"
+        },
+        {
+          "slug": "vermieten",
+          "title": "Menschen verbinden.",
+          "text": "Das richtige Zuhause für die richtigen Menschen. Wir kümmern uns um die Details.",
+          "label": "Immobilie vermieten"
+        },
+        {
+          "slug": "bewertung",
+          "title": "Klarheit gewinnen.",
+          "text": "Wissen, was Ihre Immobilie wert ist. Persönlich eingeschätzt, fundiert beraten.",
+          "label": "Wert einschätzen lassen"
+        }
+      ],
+      "items": {
+        "$ref": "#/$defs/Service"
+      },
+      "title": "Services",
+      "type": "array"
+    },
+    "approach_heading": {
+      "default": "Persönlich denken.\nWeitsichtig handeln.",
+      "title": "Approach Heading",
+      "type": "string"
+    },
+    "approach_text": {
+      "default": "Ein Zuhause ist mehr als eine Adresse. Es ist ein Gefühl. Deshalb nehmen wir uns Zeit für das, was Ihnen wichtig ist – und begleiten Sie mit Erfahrung, Klarheit und einem Blick für das Besondere.",
+      "title": "Approach Text",
+      "type": "string"
+    },
+    "approach_image": {
+      "default": "/architecture.png",
+      "title": "Approach Image",
+      "type": "string"
+    },
+    "approach_alt": {
+      "default": "Generierte Architekturillustration; kein Immobilienangebot",
+      "title": "Approach Alt",
+      "type": "string"
+    },
+    "privacy_text": {
+      "default": "RECHTLICH ZU PRÜFEN: Ihre Angaben werden zur Bearbeitung Ihrer Anfrage verwendet. Ergänzen Sie Verantwortlichen, Empfänger, Rechtsgrundlagen, Aufbewahrung und Ihre Rechte vor Veröffentlichung.",
+      "title": "Privacy Text",
+      "type": "string"
+    },
+    "legal_text": {
+      "default": "RECHTLICH ZU PRÜFEN: Bitte hinterlegen Sie hier die vollständigen Anbieterangaben Ihres Unternehmens.",
+      "title": "Legal Text",
+      "type": "string"
+    },
+    "retention_days": {
+      "default": 90,
+      "maximum": 730,
+      "minimum": 1,
+      "title": "Retention Days",
+      "type": "integer"
+    },
+    "disclosure_text": {
+      "default": "Laden Sie unsere Selbstauskunft herunter und füllen Sie diese in Ruhe auf Ihrem Gerät aus. Stimmen Sie die Rückgabe persönlich mit uns ab.",
+      "title": "Disclosure Text",
+      "type": "string"
+    },
+    "disclosure_pdf": {
+      "default": "",
+      "title": "Disclosure Pdf",
+      "type": "string"
+    },
+    "disclosure_returns": {
+      "default": false,
+      "title": "Disclosure Returns",
+      "type": "boolean"
+    },
+    "modules": {
+      "$ref": "#/$defs/Modules",
+      "default": {
+        "contact": true,
+        "properties": true,
+        "applications": true,
+        "disclosure": false,
+        "email": false,
+        "telegram": false,
+        "analytics": false
+      }
+    },
+    "forms": {
+      "additionalProperties": {
+        "$ref": "#/$defs/FormTargets"
+      },
+      "default": {
+        "contact": {
+          "email": false,
+          "phone_required": false,
+          "store": true,
+          "telegram": false
+        },
+        "application": {
+          "email": false,
+          "phone_required": false,
+          "store": true,
+          "telegram": false
+        }
+      },
+      "title": "Forms",
+      "type": "object"
+    },
+    "sections": {
+      "default": [
+        {
+          "id": "hero",
+          "visible": true
+        },
+        {
+          "id": "services",
+          "visible": true
+        },
+        {
+          "id": "properties",
+          "visible": true
+        },
+        {
+          "id": "approach",
+          "visible": true
+        },
+        {
+          "id": "contact",
+          "visible": true
+        }
+      ],
+      "items": {
+        "$ref": "#/$defs/Section"
+      },
+      "title": "Sections",
+      "type": "array"
+    },
+    "pages": {
+      "default": [
+        {
+          "slug": "verkaufen",
+          "title": "Verkaufen",
+          "enabled": true,
+          "text": "Ihre Immobilie verdient die richtige Perspektive. Wir begleiten Sie vom ersten Gespräch bis zur Übergabe.",
+          "form": true,
+          "seo_description": ""
+        },
+        {
+          "slug": "vermieten",
+          "title": "Vermieten",
+          "enabled": true,
+          "text": "Passende Menschen für Ihre Immobilie. Persönlich, sorgfältig und vorausschauend.",
+          "form": true,
+          "seo_description": ""
+        },
+        {
+          "slug": "bewertung",
+          "title": "Bewertung",
+          "enabled": true,
+          "text": "Eine fundierte Einschätzung als Grundlage für Ihre nächste Entscheidung. Wir prüfen Ihre Angaben persönlich; es wird kein automatischer Immobilienwert berechnet.",
+          "form": true,
+          "seo_description": ""
+        },
+        {
+          "slug": "beratung",
+          "title": "Beratung",
+          "enabled": true,
+          "text": "Gute Entscheidungen beginnen mit einem offenen Gespräch.",
+          "form": true,
+          "seo_description": ""
+        },
+        {
+          "slug": "ueber-uns",
+          "title": "Über uns",
+          "enabled": true,
+          "text": "Immobilien sind für uns mehr als Quadratmeter. Sie sind der Anfang einer neuen Geschichte.",
+          "form": false,
+          "seo_description": ""
+        }
+      ],
+      "items": {
+        "$ref": "#/$defs/Page"
+      },
+      "title": "Pages",
+      "type": "array"
+    }
+  },
+  "title": "Config",
+  "type": "object"
+}

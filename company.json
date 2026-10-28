@@ -1,0 +1,170 @@
+{
+  "company": "Big Ben Immobilien",
+  "tagline": "IMMOBILIEN",
+  "city": "London",
+  "address": "Avenue 1",
+  "email": "Clockbot@telegram.com",
+  "phone": "",
+  "legal": {
+    "legal_form": "GmbH",
+    "representative": "Illuminati",
+    "postcode": "",
+    "register_court": "",
+    "register_number": "",
+    "vat_id": "35353535353535",
+    "supervisory_authority": "",
+    "professional_rules": "",
+    "responsible_content": "",
+    "reviewed": false
+  },
+  "frontend_brief": {
+    "audience": "Eigentümer, Kauf- und Mietinteressenten",
+    "style": "Klar, hochwertig, zugänglich und persönlich",
+    "wishes": "Big Ben , London stil "
+  },
+  "frontend_theme": {
+    "background": "#f7f9fa",
+    "foreground": "#142736",
+    "hero_layout": "cover",
+    "card_layout": "grid",
+    "radius": 0,
+    "content_width": 1280,
+    "spacing": "normal",
+    "heading_scale": 1.0
+  },
+  "logo": "",
+  "favicon": "",
+  "primary": "#173c50",
+  "accent": "#b18b63",
+  "font": "modern",
+  "template": "atelier",
+  "headline": "Räume für heute.\nWerte für morgen.",
+  "introduction": "Besondere Immobilien. Persönliche Beratung.\nWir verbinden Ihr Zuhause mit Ihrer nächsten Perspektive.",
+  "hero_image": "/architecture.png",
+  "hero_alt": "Westminster und Elizabeth Tower in London – Architekturillustration, kein Immobilienangebot",
+  "cta_label": "Immobilien entdecken",
+  "cta_target": "immobilien",
+  "seo_title": "Immobilien mit Perspektive",
+  "seo_description": "Ihr nächstes Zuhause beginnt mit einer persönlichen Beratung.",
+  "social_links": [],
+  "footer_text": "Räume mit Charakter. Beratung mit Weitblick.",
+  "services_heading": "Ihre Pläne.\nUnsere Perspektive.",
+  "services_intro": "Jede Immobilie erzählt eine Geschichte. Wir helfen Ihnen, das nächste Kapitel zu schreiben.",
+  "services": [
+    {
+      "slug": "verkaufen",
+      "title": "Werte weitergeben.",
+      "text": "Von der ersten Einschätzung bis zur Schlüsselübergabe. Mit einem guten Gefühl verkaufen.",
+      "label": "Immobilie verkaufen"
+    },
+    {
+      "slug": "vermieten",
+      "title": "Menschen verbinden.",
+      "text": "Das richtige Zuhause für die richtigen Menschen. Wir kümmern uns um die Details.",
+      "label": "Immobilie vermieten"
+    },
+    {
+      "slug": "bewertung",
+      "title": "Klarheit gewinnen.",
+      "text": "Wissen, was Ihre Immobilie wert ist. Persönlich eingeschätzt, fundiert beraten.",
+      "label": "Wert einschätzen lassen"
+    }
+  ],
+  "approach_heading": "Persönlich denken.\nWeitsichtig handeln.",
+  "approach_text": "Ein Zuhause ist mehr als eine Adresse. Es ist ein Gefühl. Deshalb nehmen wir uns Zeit für das, was Ihnen wichtig ist – und begleiten Sie mit Erfahrung, Klarheit und einem Blick für das Besondere.",
+  "approach_image": "/architecture.png",
+  "approach_alt": "Westminster und Elizabeth Tower in London – Architekturillustration, kein Immobilienangebot",
+  "privacy_text": "RECHTLICH ZU PRÜFEN: Ihre Angaben werden zur Bearbeitung Ihrer Anfrage verwendet. Ergänzen Sie Verantwortlichen, Empfänger, Rechtsgrundlagen, Aufbewahrung und Ihre Rechte vor Veröffentlichung.",
+  "legal_text": "Big Ben Immobilien\nGmbH\nAvenue 1\nLondon\nE-Mail: Clockbot@telegram.com\nTelefon: \nVertreten durch: Illuminati\nUmsatzsteuer-ID: 35353535353535\n",
+  "retention_days": 90,
+  "disclosure_text": "Laden Sie unsere Selbstauskunft herunter und füllen Sie diese in Ruhe auf Ihrem Gerät aus. Stimmen Sie die Rückgabe persönlich mit uns ab.",
+  "disclosure_pdf": "",
+  "disclosure_returns": false,
+  "modules": {
+    "contact": true,
+    "properties": true,
+    "applications": true,
+    "disclosure": false,
+    "email": false,
+    "telegram": true,
+    "analytics": true
+  },
+  "forms": {
+    "contact": {
+      "store": true,
+      "email": false,
+      "telegram": true,
+      "phone_required": false
+    },
+    "application": {
+      "store": true,
+      "email": false,
+      "telegram": true,
+      "phone_required": false
+    }
+  },
+  "sections": [
+    {
+      "id": "hero",
+      "visible": true
+    },
+    {
+      "id": "services",
+      "visible": true
+    },
+    {
+      "id": "properties",
+      "visible": true
+    },
+    {
+      "id": "approach",
+      "visible": true
+    },
+    {
+      "id": "contact",
+      "visible": true
+    }
+  ],
+  "pages": [
+    {
+      "slug": "verkaufen",
+      "title": "Verkaufen",
+      "enabled": true,
+      "text": "Ihre Immobilie verdient die richtige Perspektive. Wir begleiten Sie vom ersten Gespräch bis zur Übergabe.",
+      "form": true,
+      "seo_description": ""
+    },
+    {
+      "slug": "vermieten",
+      "title": "Vermieten",
+      "enabled": true,
+      "text": "Passende Menschen für Ihre Immobilie. Persönlich, sorgfältig und vorausschauend.",
+      "form": true,
+      "seo_description": ""
+    },
+    {
+      "slug": "bewertung",
+      "title": "Bewertung",
+      "enabled": true,
+      "text": "Eine fundierte Einschätzung als Grundlage für Ihre nächste Entscheidung. Wir prüfen Ihre Angaben persönlich; es wird kein automatischer Immobilienwert berechnet.",
+      "form": true,
+      "seo_description": ""
+    },
+    {
+      "slug": "beratung",
+      "title": "Beratung",
+      "enabled": true,
+      "text": "Gute Entscheidungen beginnen mit einem offenen Gespräch.",
+      "form": true,
+      "seo_description": ""
+    },
+    {
+      "slug": "ueber-uns",
+      "title": "Über uns",
+      "enabled": true,
+      "text": "Immobilien sind für uns mehr als Quadratmeter. Sie sind der Anfang einer neuen Geschichte.",
+      "form": false,
+      "seo_description": ""
+    }
+  ]
+}

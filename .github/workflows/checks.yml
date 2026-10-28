@@ -1,0 +1,39 @@
+name: Frontend and API checks
+on: [push, pull_request]
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    defaults:
+      run:
+        working-directory: reference
+    env:
+      DELIVERY_WORKER: '0'
+      NEXT_TELEMETRY_DISABLED: '1'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          cache: npm
+          cache-dependency-path: reference/frontend/package-lock.json
+      - name: Install locked dependencies
+        run: |
+          python -m venv .venv
+          .venv/bin/pip install -r backend/requirements.txt
+          npm --prefix frontend ci --no-audit --no-fund
+      - name: Backend tests
+        run: PYTHONPATH=backend .venv/bin/pytest backend/tests -q
+      - name: Production build and typecheck
+        run: |
+          npm --prefix frontend run build
+          npm --prefix frontend run typecheck
+      - name: Install browser
+        run: npm --prefix frontend exec -- playwright install --with-deps chromium
+      - name: Desktop and mobile browser tests
+        run: npm --prefix frontend run test:e2e

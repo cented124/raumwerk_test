@@ -1,0 +1,33 @@
+{
+  "id": "westminster-perspective-20261028",
+  "name": "Westminster · Perspective",
+  "version": 2,
+  "adapter": "atelier",
+  "theme": {
+    "background": "#f7f9fa",
+    "foreground": "#142736",
+    "hero_layout": "cover",
+    "card_layout": "grid",
+    "radius": 0,
+    "content_width": 1280,
+    "spacing": "normal",
+    "heading_scale": 1.0,
+    "primary": "#173c50",
+    "accent": "#b18b63",
+    "font": "modern"
+  },
+  "pages": [
+    "home",
+    "properties",
+    "property",
+    "contact",
+    "disclosure",
+    "content"
+  ],
+  "actions": [
+    "search",
+    "inquiry",
+    "download",
+    "return"
+  ]
+}
